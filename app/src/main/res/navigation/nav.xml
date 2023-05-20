@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.farming.ui.main.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.farming.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+
+        <action
+            android:id="@+id/action_splashFragment_to_mainAuthFragment"
+            app:destination="@id/mainAuthFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.farming.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerUserTypeFragment"
+            app:destination="@id/registerUserTypeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.farming.ui.auth.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainAuthFragment"
+        android:name="com.example.farming.ui.main.MainAuthFragment"
+        android:label="fragment_main_auth"
+        tools:layout="@layout/fragment_main_auth" >
+        <action
+            android:id="@+id/action_mainAuthFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainAuthFragment_to_registerUserTypeFragment"
+            app:destination="@id/registerUserTypeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerUserTypeFragment"
+        android:name="com.example.farming.ui.main.RegisterUserTypeFragment"
+        android:label="fragment_register_user_type"
+        tools:layout="@layout/fragment_register_user_type" >
+        <action
+            android:id="@+id/action_registerUserTypeFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_registerUserTypeFragment_to_registerClientFragment"
+            app:destination="@id/registerClientFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerClientFragment"
+        android:name="com.example.farming.ui.auth.RegisterClientFragment"
+        android:label="fragment_register_client"
+        tools:layout="@layout/fragment_register_client" >
+        <action
+            android:id="@+id/action_registerClientFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemBiddingDetailFragment"
+        android:name="com.example.farming.ui.main.ItemBiddingDetailFragment"
+        android:label="fragment_item_bidding_detail"
+        tools:layout="@layout/fragment_item_bidding_detail" >
+        <action
+            android:id="@+id/action_itemBiddingDetailFragment_to_successBidFragment"
+            app:destination="@id/successBidFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.farming.ui.main.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_itemBiddingDetailFragment"
+            app:destination="@id/itemBiddingDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successBidFragment"
+        android:name="com.example.farming.ui.main.SuccessBidFragment"
+        android:label="fragment_success_bid"
+        tools:layout="@layout/fragment_success_bid" >
+        <action
+            android:id="@+id/action_successBidFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+</navigation>
