@@ -1,11 +1,13 @@
 package com.example.farming.ui.main
 
-import android.content.ClipData
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.farming.R
 import com.example.farming.adapter.SuppliersAdapter
@@ -36,6 +38,9 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        (activity as AppCompatActivity).supportActionBar?.hide()
+
+        setUpBinding()
 
         mFirebaseDatabase = FirebaseDatabase.getInstance()
         mRecyclerView = view.findViewById(R.id.recyclerView)
@@ -62,5 +67,11 @@ class DashboardFragment : Fragment() {
         })
 
 
+    }
+
+    private fun setUpBinding() {
+        binding.seeAllBids.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment_to_listMateialBidsFragment)
+        }
     }
 }

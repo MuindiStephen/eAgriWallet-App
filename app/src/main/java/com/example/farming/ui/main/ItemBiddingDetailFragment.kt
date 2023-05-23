@@ -39,13 +39,13 @@ class ItemBiddingDetailFragment : Fragment() {
         //submitBid(supplier,bid)
         (activity as AppCompatActivity).supportActionBar?.hide()
 
-        val database = FirebaseDatabase.getInstance().reference
+        FirebaseDatabase.getInstance().reference
         firebaseAuth = FirebaseAuth.getInstance()
         userId = firebaseAuth.currentUser?.uid
 
         fetchCurrentLoggedInUser()
 
-        val materialPrice: EditText = view.findViewById(R.id.materialPrice)
+       // val materialPrice: EditText = view.findViewById(R.id.materialPrice)
 
         binding.buttonPlaceBid.setOnClickListener {
             // Login for bidding

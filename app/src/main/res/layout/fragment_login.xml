@@ -29,6 +29,7 @@
         app:startIconTint="?attr/colorControlNormal">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -59,6 +60,7 @@
         app:startIconTint="?attr/colorControlNormal">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"

@@ -43,7 +43,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation 'com.google.firebase:firebase-database:20.2.1'
     implementation 'com.google.firebase:firebase-storage:20.2.0'
-    implementation 'com.firebaseui:firebase-ui-database:5.0.0'
 
     // Firebase BOM
     implementation platform('com.google.firebase:firebase-bom:29.0.1')
@@ -70,9 +69,12 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
 
     //Glide - For Loading Images
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     // Lottie
     implementation 'com.airbnb.android:lottie:6.0.0'
+
+    // Test navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment2">
+
+    <fragment
+        android:id="@+id/splashFragment2"
+        android:name="com.example.farming.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment2_to_mainAuthFragment2"
+            app:destination="@id/mainAuthFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainAuthFragment2"
+        android:name="com.example.farming.ui.main.MainAuthFragment"
+        android:label="fragment_main_auth"
+        tools:layout="@layout/fragment_main_auth" >
+        <action
+            android:id="@+id/action_mainAuthFragment2_to_registerUserTypeFragment2"
+            app:destination="@id/registerUserTypeFragment2" />
+        <action
+            android:id="@+id/action_mainAuthFragment2_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerUserTypeFragment2"
+        android:name="com.example.farming.ui.main.RegisterUserTypeFragment"
+        android:label="fragment_register_user_type"
+        tools:layout="@layout/fragment_register_user_type" >
+        <action
+            android:id="@+id/action_registerUserTypeFragment2_to_registerFragment2"
+            app:destination="@id/registerFragment2" />
+        <action
+            android:id="@+id/action_registerUserTypeFragment2_to_registerClientFragment2"
+            app:destination="@id/registerClientFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.farming.ui.auth.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment2_to_registerUserTypeFragment2"
+            app:destination="@id/registerUserTypeFragment2" />
+        <action
+            android:id="@+id/action_loginFragment2_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment2"
+        android:name="com.example.farming.ui.auth.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment2_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerClientFragment2"
+        android:name="com.example.farming.ui.auth.RegisterClientFragment"
+        android:label="fragment_register_client"
+        tools:layout="@layout/fragment_register_client" >
+        <action
+            android:id="@+id/action_registerClientFragment2_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment2"
+        android:name="com.example.farming.ui.main.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment2_to_itemBiddingDetailFragment2"
+            app:destination="@id/itemBiddingDetailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemBiddingDetailFragment2"
+        android:name="com.example.farming.ui.main.ItemBiddingDetailFragment"
+        android:label="fragment_item_bidding_detail"
+        tools:layout="@layout/fragment_item_bidding_detail" />
+</navigation>
