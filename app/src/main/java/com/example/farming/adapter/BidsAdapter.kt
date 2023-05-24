@@ -13,7 +13,7 @@ import com.google.android.play.core.integrity.p
 
 class BidsAdapter : RecyclerView.Adapter<BidsAdapter.BidViewHolder>() {
 
-    var bidList: List<Bid>? = emptyList()
+    var bidList: List<Bid>? = null
 
     fun PostsAdapter(bidList: List<Bid>?) {
         this.bidList = bidList

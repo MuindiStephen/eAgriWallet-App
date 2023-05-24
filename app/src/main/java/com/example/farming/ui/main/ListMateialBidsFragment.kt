@@ -65,6 +65,11 @@ class ListMateialBidsFragment : Fragment() {
                     bidAdapter = BidsAdapter()
                     bidAdapter!!.bidList
                     binding.bidsRecyclerView.adapter = bidAdapter
+                    Toast.makeText(
+                        requireContext(),
+                        "Alert! Available bids from your clients",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 } else {
 
                     Toast.makeText(

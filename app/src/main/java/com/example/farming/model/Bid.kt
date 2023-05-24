@@ -1,9 +1,14 @@
 package com.example.farming.model
 
-import java.lang.reflect.Constructor
+class Bid {
+    var price:String? = null
+    var materialSupplied:String? = null
+    var clientName:String? = null
 
-data class Bid(
-    val price: String?="",
-    val materialSupplied: String?="",
-    val clientName:String?=""
-)
+    constructor() {}
+    constructor(price:String, materialSupplied:String, clientName: String?) {
+        this.price = price
+        this.materialSupplied = materialSupplied
+        this.clientName = clientName
+    }
+}
