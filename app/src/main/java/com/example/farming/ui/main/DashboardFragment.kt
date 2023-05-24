@@ -47,6 +47,11 @@ class DashboardFragment : Fragment() {
         mRecyclerView = view.findViewById(R.id.recyclerView)
 
 
+
+
+
+        /*
+
         itemList = arrayListOf()
         reference = mFirebaseDatabase.getReference("Suppliers")
 
@@ -68,6 +73,9 @@ class DashboardFragment : Fragment() {
         })
 
 
+    }
+
+         */
     }
 
     private fun setUpBinding() {
