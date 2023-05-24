@@ -43,8 +43,10 @@ class DashboardFragment : Fragment() {
         setUpBinding()
 
 
-        mFirebaseDatabase = FirebaseDatabase.getInstance()
+        //mFirebaseDatabase = FirebaseDatabase.getInstance()
         mRecyclerView = view.findViewById(R.id.recyclerView)
+
+
 
 
 
