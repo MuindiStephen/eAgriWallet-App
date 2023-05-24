@@ -13,7 +13,7 @@ import com.google.android.play.core.integrity.p
 
 class BidsAdapter : RecyclerView.Adapter<BidsAdapter.BidViewHolder>() {
 
-    var bidList: List<Bid>? = null
+    var bidList: List<Bid>? = emptyList()
 
     fun PostsAdapter(bidList: List<Bid>?) {
         this.bidList = bidList
@@ -51,7 +51,7 @@ class BidsAdapter : RecyclerView.Adapter<BidsAdapter.BidViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return bidList!!.size
+        return bidList?.size ?: 0
     }
 
 }
