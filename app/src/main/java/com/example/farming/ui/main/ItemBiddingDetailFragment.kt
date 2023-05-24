@@ -69,7 +69,7 @@ class ItemBiddingDetailFragment : Fragment() {
                      databaseReference.child("bids").push().setValue(bid)
                      Toast.makeText(context?.applicationContext, "Bidding success", Toast.LENGTH_SHORT)
                          .show()
-                     findNavController().navigate(R.id.action_itemBiddingDetailFragment_to_successBidFragment)
+                     findNavController().navigate(R.id.action_itemBiddingDetailFragment2_to_successBidFragment2)
                  }
 
             }

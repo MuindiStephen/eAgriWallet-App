@@ -47,7 +47,7 @@ class ListMateialBidsFragment : Fragment() {
 
     private fun setUpBinding() {
         binding.goBackHome.setOnClickListener {
-            findNavController().navigate(R.id.action_listMateialBidsFragment_to_dashboardFragment)
+            findNavController().navigate(R.id.action_listMateialBidsFragment2_to_dashboardFragment2)
         }
     }
 

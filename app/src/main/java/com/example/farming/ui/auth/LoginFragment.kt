@@ -47,7 +47,7 @@ class LoginFragment : Fragment() {
                     if (task.isSuccessful) {
                         Toast.makeText(requireContext(), "Successful Login...", Toast.LENGTH_SHORT)
                             .show()
-                        findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+                        findNavController().navigate(R.id.action_loginFragment2_to_dashboardFragment2)
                     } else {
                         Toast.makeText(requireContext(), "UnSuccessful To Login!!", Toast.LENGTH_SHORT)
                             .show()

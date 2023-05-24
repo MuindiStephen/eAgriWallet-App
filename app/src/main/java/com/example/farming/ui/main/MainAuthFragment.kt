@@ -28,10 +28,10 @@ class MainAuthFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_mainAuthFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_mainAuthFragment2_to_loginFragment2)
         }
         binding.buttonRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_mainAuthFragment_to_registerUserTypeFragment)
+            findNavController().navigate(R.id.action_mainAuthFragment2_to_registerUserTypeFragment2)
         }
     }
 

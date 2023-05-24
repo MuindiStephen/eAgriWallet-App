@@ -83,7 +83,7 @@ class RegisterClientFragment : Fragment() {
         }
 
         binding.textViewHaveAcc.setOnClickListener {
-            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_registerFragment2_to_loginFragment2)
         }
 
     }

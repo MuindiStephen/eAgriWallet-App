@@ -32,7 +32,7 @@ class RegisterUserTypeFragment : Fragment() {
             findNavController().navigate(R.id.action_registerUserTypeFragment_to_registerClientFragment)
         }
         binding.buttonRegisterAsFarmerSupplier.setOnClickListener {
-            findNavController().navigate(R.id.action_registerUserTypeFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_registerUserTypeFragment2_to_registerFragment2)
         }
     }
 }

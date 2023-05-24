@@ -76,10 +76,35 @@
         <action
             android:id="@+id/action_dashboardFragment2_to_itemBiddingDetailFragment2"
             app:destination="@id/itemBiddingDetailFragment2" />
+        <action
+            android:id="@+id/action_dashboardFragment2_to_listMateialBidsFragment2"
+            app:destination="@id/listMateialBidsFragment2" />
     </fragment>
     <fragment
         android:id="@+id/itemBiddingDetailFragment2"
         android:name="com.example.farming.ui.main.ItemBiddingDetailFragment"
         android:label="fragment_item_bidding_detail"
-        tools:layout="@layout/fragment_item_bidding_detail" />
+        tools:layout="@layout/fragment_item_bidding_detail" >
+        <action
+            android:id="@+id/action_itemBiddingDetailFragment2_to_successBidFragment2"
+            app:destination="@id/successBidFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/successBidFragment2"
+        android:name="com.example.farming.ui.main.SuccessBidFragment"
+        android:label="fragment_success_bid"
+        tools:layout="@layout/fragment_success_bid" >
+        <action
+            android:id="@+id/action_successBidFragment2_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/listMateialBidsFragment2"
+        android:name="com.example.farming.ui.main.ListMateialBidsFragment"
+        android:label="fragment_list_mateial_bids"
+        tools:layout="@layout/fragment_list_mateial_bids" >
+        <action
+            android:id="@+id/action_listMateialBidsFragment2_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2" />
+    </fragment>
 </navigation>

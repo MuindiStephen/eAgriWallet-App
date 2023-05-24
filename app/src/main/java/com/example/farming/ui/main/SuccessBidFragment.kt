@@ -27,7 +27,7 @@ class SuccessBidFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         binding.buttonGoBackDashboard.setOnClickListener {
-            findNavController().navigate(R.id.action_successBidFragment_to_dashboardFragment)
+            findNavController().navigate(R.id.action_successBidFragment2_to_dashboardFragment2)
         }
     }
 }

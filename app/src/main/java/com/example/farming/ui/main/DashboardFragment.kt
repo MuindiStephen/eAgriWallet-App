@@ -1,29 +1,36 @@
 package com.example.farming.ui.main
 
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.farming.R
-import com.example.farming.adapter.SuppliersAdapter
+import com.example.farming.adapter.FarmersAdapter
+import com.example.farming.data.RetrofitInstance
+import com.example.farming.data.SuppliersDTOItem
 import com.example.farming.databinding.FragmentDashboardBinding
-import com.example.farming.model.Supplies
-import com.google.firebase.database.*
+import retrofit2.Call
+import retrofit2.Response
 
 class DashboardFragment : Fragment() {
 
     private lateinit var binding: FragmentDashboardBinding
     private lateinit var mRecyclerView: RecyclerView
-    private lateinit var mFirebaseDatabase: FirebaseDatabase
-    private lateinit var reference: DatabaseReference
-    private lateinit var adapter: SuppliersAdapter
 
-    var itemList: ArrayList<Supplies>? = null
+   // private lateinit var mFirebaseDatabase: FirebaseDatabase
+   // private lateinit var reference: DatabaseReference
+
+     val suppliersAdapter by lazy { FarmersAdapter() }
+
+    // var itemList: ArrayList<Supplies>? = null
 
 
     override fun onCreateView(
@@ -42,14 +49,26 @@ class DashboardFragment : Fragment() {
 
         setUpBinding()
 
-
         //mFirebaseDatabase = FirebaseDatabase.getInstance()
         mRecyclerView = view.findViewById(R.id.recyclerView)
 
 
+        RetrofitInstance.api.getAllSuppliers().enqueue(object : retrofit2.Callback<ArrayList<SuppliersDTOItem>>{
+            override fun onResponse(
+                call: Call<ArrayList<SuppliersDTOItem>>,
+                response: Response<ArrayList<SuppliersDTOItem>>
+            ) {
+                if (response.isSuccessful) {
+                    suppliersAdapter.submitList(response.body())
+                    mRecyclerView.adapter = suppliersAdapter
+                }
+            }
 
+            override fun onFailure(call: Call<ArrayList<SuppliersDTOItem>>, t: Throwable) {
+                Toast.makeText(requireContext(), "No available supplies",Toast.LENGTH_SHORT).show()
+            }
 
-
+        })
 
 
         /*
@@ -82,7 +101,9 @@ class DashboardFragment : Fragment() {
 
     private fun setUpBinding() {
         binding.seeAllBids.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment_to_listMateialBidsFragment)
+            findNavController().navigate(R.id.action_dashboardFragment2_to_listMateialBidsFragment2)
         }
+
+
     }
 }

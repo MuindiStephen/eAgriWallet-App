@@ -1,9 +1,10 @@
 package com.example.farming.data
 
-import android.telecom.Call
+import retrofit2.Call
+import retrofit2.http.GET
 
 
 interface ApiService {
-
-     fun getAllSuppliers() : Call<SuppliersDTO>
+     @GET("supplies")
+     fun getAllSuppliers() : Call<ArrayList<SuppliersDTOItem>>
 }

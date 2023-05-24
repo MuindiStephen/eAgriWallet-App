@@ -31,7 +31,7 @@ class SplashFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.action_splashFragment_to_mainAuthFragment)
+            findNavController().navigate(R.id.action_splashFragment2_to_mainAuthFragment2)
         },3000)
     }
 }
