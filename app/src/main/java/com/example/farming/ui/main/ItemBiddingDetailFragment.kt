@@ -39,7 +39,7 @@ class ItemBiddingDetailFragment : Fragment() {
         //submitBid(supplier,bid)
         (activity as AppCompatActivity).supportActionBar?.hide()
 
-        FirebaseDatabase.getInstance().reference
+        databaseReference=FirebaseDatabase.getInstance().reference
         firebaseAuth = FirebaseAuth.getInstance()
         userId = firebaseAuth.currentUser?.uid
 
@@ -64,13 +64,13 @@ class ItemBiddingDetailFragment : Fragment() {
                 binding.enterMaterialClient.error = "Empty Supplier"
             }
             else {
-                 if (userName != null) {
+                //if (userName != null) {
                      val bid = Bid(clientName,priceBid,materialSupplied)
-                     databaseReference.child("bids").push().setValue(bid)
+                    databaseReference.child("bids").push().setValue(bid)
                      Toast.makeText(context?.applicationContext, "Bidding success", Toast.LENGTH_SHORT)
                          .show()
                      findNavController().navigate(R.id.action_itemBiddingDetailFragment2_to_successBidFragment2)
-                 }
+               // }
 
             }
         }

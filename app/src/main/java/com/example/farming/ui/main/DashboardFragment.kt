@@ -102,7 +102,6 @@ class DashboardFragment : Fragment() {
         binding.bidSupplyMaterial.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment2_to_itemBiddingDetailFragment2)
         }
-
         binding.seeAllBids.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment2_to_listMateialBidsFragment2)
         }
