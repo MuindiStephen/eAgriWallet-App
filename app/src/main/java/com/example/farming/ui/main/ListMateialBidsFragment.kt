@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.farming.R
+import com.example.farming.adapter.AllBidsAdapter
 import com.example.farming.adapter.BidsAdapter
 import com.example.farming.databinding.FragmentListMateialBidsBinding
 import com.example.farming.model.Bid
@@ -20,9 +21,11 @@ class ListMateialBidsFragment : Fragment() {
 
     private lateinit var binding: FragmentListMateialBidsBinding
     var bidList: ArrayList<Bid> = ArrayList()
-    var bidAdapter: BidsAdapter? = null
+    var bidAdapter: AllBidsAdapter? = null
     var databaseReference: DatabaseReference? = null
     var firebaseAuth: FirebaseAuth? = null
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,6 +40,8 @@ class ListMateialBidsFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+        // Initializing the Database Reference
         databaseReference = FirebaseDatabase.getInstance().getReference("bids")
 
         getAllBids()
@@ -53,7 +58,7 @@ class ListMateialBidsFragment : Fragment() {
 
 
     private fun getAllBids() {
-        bidList.clear()
+       // bidList.clear()
 
         databaseReference!!.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -62,8 +67,8 @@ class ListMateialBidsFragment : Fragment() {
                         val bid: Bid? = i.getValue(Bid::class.java)
                         bidList.add(bid!!)
                     }
-                    bidAdapter = BidsAdapter()
-                    bidAdapter!!.bidList
+                    bidAdapter = AllBidsAdapter()
+                    bidAdapter!!.submitList(bidList)
                     binding.bidsRecyclerView.adapter = bidAdapter
                     Toast.makeText(
                         requireContext(),
