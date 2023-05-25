@@ -10,6 +10,9 @@ import com.example.farming.databinding.ItemBidsListBinding
 import com.example.farming.model.Bid
 
 
+/**
+ * Adapter is Working noew
+ */
 class AllBidsAdapter: ListAdapter<Bid, AllBidsAdapter.MyViewHolder>(MyDiffUtil) {
 
     object MyDiffUtil: DiffUtil.ItemCallback<Bid>() {

@@ -11,6 +11,9 @@ import com.example.farming.model.Bid
 import com.google.android.play.core.integrity.p
 
 
+/**
+ * Adapter is Not Working
+ */
 class BidsAdapter : RecyclerView.Adapter<BidsAdapter.BidViewHolder>() {
 
     var bidList: List<Bid>? = null
