@@ -45,6 +45,8 @@ class AllBidsAdapter: ListAdapter<Bid, AllBidsAdapter.MyViewHolder>(MyDiffUtil) 
         val bid = getItem(position)
         holder.bind(bid)
 
+
+
         /**
         holder.itemView.setOnClickListener {
 

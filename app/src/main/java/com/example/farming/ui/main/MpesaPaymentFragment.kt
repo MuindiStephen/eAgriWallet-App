@@ -34,7 +34,10 @@ class MpesaPaymentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        getDaraja()
+        // initializing daraja
+       daraja = getDaraja()
+
+        accessToken()
     }
 
     private fun getDaraja(): Daraja {
@@ -116,7 +119,7 @@ class MpesaPaymentFragment : Fragment() {
         }
     }
 
-    fun saveAccessToken(context: Context, accessToken: String) {
+    private fun saveAccessToken(context: Context, accessToken: String) {
         val cal = Calendar.getInstance()
         cal.add(Calendar.HOUR, 1)
         val oneHourAfter = cal.timeInMillis
@@ -129,7 +132,7 @@ class MpesaPaymentFragment : Fragment() {
         editor.apply()
     }
 
-    fun getAccessToken(context: Context): String? {
+    private fun getAccessToken(context: Context): String? {
         return if (expired(context)) {
             null
         } else {
@@ -145,7 +148,7 @@ class MpesaPaymentFragment : Fragment() {
         return currentTime > expiryTime
     }
 
-    fun generateUUID(): String =
+    private fun generateUUID(): String =
         UUID.randomUUID().toString()
 
 }

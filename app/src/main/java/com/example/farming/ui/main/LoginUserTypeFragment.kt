@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.example.farming.R
 import com.example.farming.databinding.FragmentLoginUserTypeBinding
@@ -23,6 +24,8 @@ class LoginUserTypeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        (activity as AppCompatActivity).supportActionBar?.hide()
 
         binding.buttonLoginAsClient.setOnClickListener {
             findNavController().navigate(R.id.action_loginUserTypeFragment_to_loginFragment2)

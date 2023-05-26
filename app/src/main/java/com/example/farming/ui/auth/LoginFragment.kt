@@ -21,8 +21,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentLoginBinding.inflate(inflater,container,false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,23 +36,31 @@ class LoginFragment : Fragment() {
             val email: String = binding.enterLoginEmail.text.toString()
             val password: String = binding.enterLoginPassword.text.toString()
 
-            if (email.isEmpty()){
+            if (email.isEmpty()) {
                 binding.enterLoginEmail.error = "Empty Email";
-            }
-            else if (password.isEmpty()){
+            } else if (password.isEmpty()) {
                 binding.enterLoginPassword.error = "Empty Password";
-            }else{
-                firebaseAuth!!.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(requireContext(), "Successful Login...", Toast.LENGTH_SHORT)
-                            .show()
-                        findNavController().navigate(R.id.action_loginFragment2_to_dashboardFragment2)
-                    } else {
-                        Toast.makeText(requireContext(), "UnSuccessful To Login!!", Toast.LENGTH_SHORT)
-                            .show()
-                    }
+            } else {
+                firebaseAuth!!.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(
+                                requireContext(),
+                                "Successful Login...",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                            findNavController().navigate(R.id.action_loginFragment2_to_dashboardFragment2)
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                "UnSuccessful To Login!!",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
 
-                }
+                    }
             }
         }
     }

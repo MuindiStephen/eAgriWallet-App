@@ -28,7 +28,7 @@ class MainAuthFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_mainAuthFragment2_to_loginFragment2)
+            findNavController().navigate(R.id.action_mainAuthFragment2_to_loginUserTypeFragment)
         }
         binding.buttonRegister.setOnClickListener {
             findNavController().navigate(R.id.action_mainAuthFragment2_to_registerUserTypeFragment2)

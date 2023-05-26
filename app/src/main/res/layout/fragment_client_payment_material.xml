@@ -31,7 +31,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/payMpesa"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/payByPaypal"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
@@ -53,6 +53,6 @@
         android:text="Paypal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@id/payMpesa" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

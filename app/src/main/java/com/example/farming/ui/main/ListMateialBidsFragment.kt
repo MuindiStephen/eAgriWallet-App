@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.farming.R
 import com.example.farming.adapter.AllBidsAdapter
-import com.example.farming.adapter.BidsAdapter
 import com.example.farming.databinding.FragmentListMateialBidsBinding
 import com.example.farming.model.Bid
 import com.google.firebase.auth.FirebaseAuth
@@ -20,7 +19,7 @@ import com.google.firebase.database.*
 
 class ListMateialBidsFragment : Fragment() {
 
-    private lateinit var binding: FragmentListMateialBidsBinding
+    private lateinit var binding:FragmentListMateialBidsBinding
     var bidList: ArrayList<Bid> = ArrayList()
     var bidAdapter: AllBidsAdapter? = null
     var databaseReference: DatabaseReference? = null
@@ -59,6 +58,10 @@ class ListMateialBidsFragment : Fragment() {
     private fun setUpBinding() {
         binding.goBackHome.setOnClickListener {
             findNavController().navigate(R.id.action_listMateialBidsFragment2_to_dashboardFragment2)
+        }
+
+        binding.proceedToPay.setOnClickListener {
+            findNavController().navigate(R.id.action_listMateialBidsFragment2_to_clientPaymentMaterialFragment2)
         }
     }
 
