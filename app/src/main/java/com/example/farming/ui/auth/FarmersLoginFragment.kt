@@ -33,6 +33,10 @@ class FarmersLoginFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
         firebaseAuth = FirebaseAuth.getInstance()
 
+        binding.textViewDontHaveAcc.setOnClickListener {
+            findNavController().navigate(R.id.action_farmersLoginFragment_to_registerFragment2)
+        }
+
         binding.buttonSignIn.setOnClickListener {
             val email: String = binding.enterLoginEmail.text.toString()
             val password: String = binding.enterLoginPassword.text.toString()

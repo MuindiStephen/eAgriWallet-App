@@ -23,8 +23,8 @@
             android:id="@+id/action_mainAuthFragment2_to_registerUserTypeFragment2"
             app:destination="@id/registerUserTypeFragment2" />
         <action
-            android:id="@+id/action_mainAuthFragment2_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
+            android:id="@+id/action_mainAuthFragment2_to_loginUserTypeFragment"
+            app:destination="@id/loginUserTypeFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerUserTypeFragment2"
@@ -146,4 +146,16 @@
         android:name="com.example.farming.ui.main.ClientDeliveryVerificationFragment"
         android:label="fragment_client_delivery_verification"
         tools:layout="@layout/fragment_client_delivery_verification" />
+    <fragment
+        android:id="@+id/loginUserTypeFragment"
+        android:name="com.example.farming.ui.main.LoginUserTypeFragment"
+        android:label="fragment_login_user_type"
+        tools:layout="@layout/fragment_login_user_type" >
+        <action
+            android:id="@+id/action_loginUserTypeFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
+        <action
+            android:id="@+id/action_loginUserTypeFragment_to_farmersLoginFragment"
+            app:destination="@id/farmersLoginFragment" />
+    </fragment>
 </navigation>
