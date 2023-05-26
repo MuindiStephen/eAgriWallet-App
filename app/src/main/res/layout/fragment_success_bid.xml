@@ -10,6 +10,7 @@
         android:id="@+id/lottieAnimationView"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        app:lottie_rawRes="@raw/ic_success"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -114,5 +114,18 @@
         <action
             android:id="@+id/action_listMateialBidsFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_listMateialBidsFragment_to_deliveryReportMaterialFragment"
+            app:destination="@id/deliveryReportMaterialFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/deliveryReportMaterialFragment"
+        android:name="com.example.farming.ui.main.DeliveryReportMaterialFragment"
+        android:label="fragment_delivery_report_material"
+        tools:layout="@layout/fragment_delivery_report_material" />
+    <fragment
+        android:id="@+id/clientPaymentMaterialFragment"
+        android:name="com.example.farming.ui.main.ClientPaymentMaterialFragment"
+        android:label="fragment_client_payment_material"
+        tools:layout="@layout/fragment_client_payment_material" />
 </navigation>

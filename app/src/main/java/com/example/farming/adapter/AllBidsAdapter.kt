@@ -11,7 +11,7 @@ import com.example.farming.model.Bid
 
 
 /**
- * Adapter is Working noew
+ * Adapter is Working for all bid made by clients
  */
 class AllBidsAdapter: ListAdapter<Bid, AllBidsAdapter.MyViewHolder>(MyDiffUtil) {
 
@@ -32,7 +32,7 @@ class AllBidsAdapter: ListAdapter<Bid, AllBidsAdapter.MyViewHolder>(MyDiffUtil) 
         @SuppressLint("SetTextI18n")
         fun bind(bid: Bid) {
             binding.bidClient.text = bid.clientName
-            binding.bidPrice.text = bid.price
+            binding.bidPrice.text = "Kes $bid.price"
             binding.bidMaterial.text = bid.materialSupplied
         }
     }

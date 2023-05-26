@@ -56,8 +56,8 @@
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_registerFragment2_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
+            android:id="@+id/action_registerFragment2_to_farmersLoginFragment"
+            app:destination="@id/farmersLoginFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerClientFragment2"
@@ -106,5 +106,44 @@
         <action
             android:id="@+id/action_listMateialBidsFragment2_to_dashboardFragment2"
             app:destination="@id/dashboardFragment2" />
+        <action
+            android:id="@+id/action_listMateialBidsFragment2_to_clientPaymentMaterialFragment2"
+            app:destination="@id/clientPaymentMaterialFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/clientPaymentMaterialFragment2"
+        android:name="com.example.farming.ui.main.ClientPaymentMaterialFragment"
+        android:label="fragment_client_payment_material"
+        tools:layout="@layout/fragment_client_payment_material" >
+        <action
+            android:id="@+id/action_clientPaymentMaterialFragment2_to_mpesaPaymentFragment"
+            app:destination="@id/mpesaPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deliveryReportMaterialFragment2"
+        android:name="com.example.farming.ui.main.DeliveryReportMaterialFragment"
+        android:label="fragment_delivery_report_material"
+        tools:layout="@layout/fragment_delivery_report_material" />
+    <fragment
+        android:id="@+id/mpesaPaymentFragment"
+        android:name="com.example.farming.ui.main.MpesaPaymentFragment"
+        android:label="fragment_mpesa_payment"
+        tools:layout="@layout/fragment_mpesa_payment" />
+    <fragment
+        android:id="@+id/farmersLoginFragment"
+        android:name="com.example.farming.ui.auth.FarmersLoginFragment"
+        android:label="fragment_farmers_login"
+        tools:layout="@layout/fragment_farmers_login" >
+        <action
+            android:id="@+id/action_farmersLoginFragment_to_registerFragment2"
+            app:destination="@id/registerFragment2" />
+        <action
+            android:id="@+id/action_farmersLoginFragment_to_deliveryReportMaterialFragment2"
+            app:destination="@id/deliveryReportMaterialFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientDeliveryVerificationFragment"
+        android:name="com.example.farming.ui.main.ClientDeliveryVerificationFragment"
+        android:label="fragment_client_delivery_verification"
+        tools:layout="@layout/fragment_client_delivery_verification" />
 </navigation>
