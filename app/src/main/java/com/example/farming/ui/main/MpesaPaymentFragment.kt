@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.androidstudy.daraja.BuildConfig
 import com.androidstudy.daraja.Daraja
 import com.androidstudy.daraja.callback.DarajaResult
 import com.androidstudy.daraja.util.Environment
 import com.androidstudy.daraja.util.TransactionType
+import com.example.farming.R
 import com.example.farming.databinding.FragmentMpesaPaymentBinding
 import java.util.*
 
@@ -82,7 +84,8 @@ class MpesaPaymentFragment : Fragment() {
                 when (darajaResult) {
                     is DarajaResult.Success -> {
                         val result = darajaResult.value
-                        Toast.makeText(context?.applicationContext,result.ResponseDescription,Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context?.applicationContext,"Material Payment Successful"+result.ResponseDescription,Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.action_mpesaPaymentFragment_to_clientDeliveryVerificationFragment)
                     }
                     is DarajaResult.Failure -> {
                         val exception = darajaResult.darajaException

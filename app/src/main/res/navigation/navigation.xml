@@ -48,7 +48,9 @@
             app:destination="@id/registerUserTypeFragment2" />
         <action
             android:id="@+id/action_loginFragment2_to_dashboardFragment2"
-            app:destination="@id/dashboardFragment2" />
+            app:destination="@id/dashboardFragment2"
+            app:popUpTo="@id/loginFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment2"
@@ -128,7 +130,11 @@
         android:id="@+id/mpesaPaymentFragment"
         android:name="com.example.farming.ui.main.MpesaPaymentFragment"
         android:label="fragment_mpesa_payment"
-        tools:layout="@layout/fragment_mpesa_payment" />
+        tools:layout="@layout/fragment_mpesa_payment" >
+        <action
+            android:id="@+id/action_mpesaPaymentFragment_to_clientDeliveryVerificationFragment"
+            app:destination="@id/clientDeliveryVerificationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/farmersLoginFragment"
         android:name="com.example.farming.ui.auth.FarmersLoginFragment"
