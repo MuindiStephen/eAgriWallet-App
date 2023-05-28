@@ -72,7 +72,7 @@ class RegisterClientFragment : Fragment() {
 
                         binding.registerProgressbar.visibility = View.INVISIBLE
 
-                        findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                        findNavController().navigate(R.id.action_registerClientFragment2_to_loginFragment2)
                     } else {
                         binding.registerProgressbar.visibility = View.INVISIBLE
                         Toast.makeText(requireContext(),task.exception?.localizedMessage, Toast.LENGTH_SHORT).show()
