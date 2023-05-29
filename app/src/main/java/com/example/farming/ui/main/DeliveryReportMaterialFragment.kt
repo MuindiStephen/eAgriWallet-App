@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.farming.R
 import com.example.farming.databinding.FragmentDeliveryReportMaterialBinding
@@ -38,6 +39,9 @@ class DeliveryReportMaterialFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.hide()
 
+        binding.btnReportDelivery.setOnClickListener {
+            Toast.makeText(requireActivity(),"SMS feature coming soon....",Toast.LENGTH_SHORT).show()
+        }
         /**
         sentPendingIntent =
             PendingIntent.getBroadcast(requireContext(), 0, Intent("SMS_SENT_ACTION"), 0)
@@ -63,7 +67,7 @@ class DeliveryReportMaterialFragment : Fragment() {
             intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("karis51jane@gmail.com"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "Material Delivery Status")
             intent.putExtra(Intent.EXTRA_TEXT, "Your product is being delivered within 3 days")
-            startActivity(Intent.createChooser(intent, "MOBILE KILIMO"));
+            startActivity(Intent.createChooser(intent, "MOBILE KILIMO"))
         }
     }
 }

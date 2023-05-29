@@ -29,7 +29,7 @@ class RegisterUserTypeFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.hide()
 
         binding.buttonRegisterAsClient.setOnClickListener {
-            findNavController().navigate(R.id.action_registerUserTypeFragment_to_registerClientFragment)
+            findNavController().navigate(R.id.action_registerUserTypeFragment2_to_registerClientFragment2)
         }
         binding.buttonRegisterAsFarmerSupplier.setOnClickListener {
             findNavController().navigate(R.id.action_registerUserTypeFragment2_to_registerFragment2)
