@@ -19,9 +19,9 @@ class DeliveryReportMaterialFragment : Fragment() {
 
     private lateinit var binding: FragmentDeliveryReportMaterialBinding
 
-    private val sms: SmsManager? = SmsManager.getDefault()
-    private lateinit var sentPendingIntent: PendingIntent
-    private lateinit var deliveredPendingIntent: PendingIntent
+   // private val sms: SmsManager? = SmsManager.getDefault()
+   // private lateinit var sentPendingIntent: PendingIntent
+    // private lateinit var deliveredPendingIntent: PendingIntent
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +38,7 @@ class DeliveryReportMaterialFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.hide()
 
+        /**
         sentPendingIntent =
             PendingIntent.getBroadcast(requireContext(), 0, Intent("SMS_SENT_ACTION"), 0)
         deliveredPendingIntent =
@@ -52,6 +53,7 @@ class DeliveryReportMaterialFragment : Fragment() {
                 deliveredPendingIntent
             )
         }
+        */
 
         // Email reporting
         binding.emailReporting.setOnClickListener {
