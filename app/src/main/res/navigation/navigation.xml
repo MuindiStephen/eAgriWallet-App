@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment2_to_mainAuthFragment2"
-            app:destination="@id/mainAuthFragment2" />
+            app:destination="@id/mainAuthFragment2"
+            app:popUpTo="@id/splashFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/mainAuthFragment2"

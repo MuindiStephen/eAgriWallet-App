@@ -32,7 +32,7 @@ class AllBidsAdapter: ListAdapter<Bid, AllBidsAdapter.MyViewHolder>(MyDiffUtil) 
         @SuppressLint("SetTextI18n")
         fun bind(bid: Bid) {
             binding.bidClient.text = bid.clientName
-            binding.bidPrice.text = "Kes $bid.price"
+            binding.bidPrice.text = bid.price
             binding.bidMaterial.text = bid.materialSupplied
         }
     }

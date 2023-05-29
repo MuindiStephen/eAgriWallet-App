@@ -25,6 +25,7 @@ class ListMateialBidsFragment : Fragment() {
     var databaseReference: DatabaseReference? = null
     var firebaseAuth: FirebaseAuth? = null
 
+     // private var buttonApprove: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,11 +49,16 @@ class ListMateialBidsFragment : Fragment() {
 
         setUpBinding()
 
+
         // Approve and Delivery of the Bid Material
-        val approveBtn = view.findViewById<Button>(R.id.buttonApprove)
-        approveBtn.setOnClickListener {
+        /**
+       buttonApprove = view.findViewById(R.id.buttonApprove)
+
+        buttonApprove!!.setOnClickListener {
             findNavController().navigate(R.id.action_listMateialBidsFragment_to_deliveryReportMaterialFragment)
         }
+       */
+
     }
 
     private fun setUpBinding() {

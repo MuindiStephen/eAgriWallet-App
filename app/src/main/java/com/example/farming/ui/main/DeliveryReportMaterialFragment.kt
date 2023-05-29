@@ -22,6 +22,7 @@ class DeliveryReportMaterialFragment : Fragment() {
     private val sms: SmsManager? = SmsManager.getDefault()
     private lateinit var sentPendingIntent: PendingIntent
     private lateinit var deliveredPendingIntent: PendingIntent
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,8 +56,9 @@ class DeliveryReportMaterialFragment : Fragment() {
         // Email reporting
         binding.emailReporting.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
-            intent.type = ("message/rfc822")
-            intent.data = Uri.parse("mailto:kariuki51jane@gmail.com")
+            intent.type = "text/plain"
+            intent.data = Uri.parse("mailto:")
+            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("karis51jane@gmail.com"))
             intent.putExtra(Intent.EXTRA_SUBJECT, "Material Delivery Status")
             intent.putExtra(Intent.EXTRA_TEXT, "Your product is being delivered within 3 days")
             startActivity(Intent.createChooser(intent, "MOBILE KILIMO"));
