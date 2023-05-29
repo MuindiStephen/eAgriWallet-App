@@ -31,7 +31,7 @@ class DeliveryReportMaterialFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("UnspecifiedImmutableFlag")
+    @SuppressLint("UnspecifiedImmutableFlag", "IntentReset")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -56,7 +56,7 @@ class DeliveryReportMaterialFragment : Fragment() {
         binding.emailReporting.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = ("message/rfc822")
-            intent.setData(Uri.parse("mailto:kariuki51jane@gmail.com"))
+            intent.data = Uri.parse("mailto:kariuki51jane@gmail.com")
             intent.putExtra(Intent.EXTRA_SUBJECT, "Material Delivery Status")
             intent.putExtra(Intent.EXTRA_TEXT, "Your product is being delivered within 3 days")
             startActivity(Intent.createChooser(intent, "MOBILE KILIMO"));
