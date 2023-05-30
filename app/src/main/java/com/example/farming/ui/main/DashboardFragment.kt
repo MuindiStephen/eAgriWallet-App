@@ -2,6 +2,7 @@ package com.example.farming.ui.main
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,9 @@ import com.example.farming.adapter.FarmersAdapter
 import com.example.farming.data.RetrofitInstance
 import com.example.farming.data.SuppliersDTOItem
 import com.example.farming.databinding.FragmentDashboardBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import retrofit2.Call
 import retrofit2.Response
 
@@ -22,17 +26,18 @@ class DashboardFragment : Fragment() {
 
     private lateinit var binding: FragmentDashboardBinding
     private lateinit var mRecyclerView: RecyclerView
+    private lateinit var suppliersAdapter: FarmersAdapter
 
-   // private lateinit var mFirebaseDatabase: FirebaseDatabase
-   // private lateinit var reference: DatabaseReference
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var reference: DatabaseReference
 
-     val suppliersAdapter by lazy { FarmersAdapter() }
-
+     //val suppliersAdapter by lazy { FarmersAdapter() }
     // var itemList: ArrayList<Supplies>? = null
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
@@ -45,11 +50,17 @@ class DashboardFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.hide()
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
         setUpBinding()
 
-        //mFirebaseDatabase = FirebaseDatabase.getInstance()
         mRecyclerView = view.findViewById(R.id.recyclerView)
 
+        suppliersAdapter = FarmersAdapter(
+            FarmersAdapter.OnClickListener {
+            Log.i(TAG,it.materialSupply)
+            findNavController().navigate(R.id.action_dashboardFragment2_to_itemBiddingDetailFragment2)
+        })
 
         RetrofitInstance.api.getAllSuppliers().enqueue(object : retrofit2.Callback<ArrayList<SuppliersDTOItem>>{
             override fun onResponse(
@@ -105,5 +116,14 @@ class DashboardFragment : Fragment() {
         binding.seeAllBids.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment2_to_listMateialBidsFragment2)
         }
+        binding.logOutText.setOnClickListener {
+            firebaseAuth.signOut()
+            Toast.makeText(requireActivity(), "Signed out successfully", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_dashboardFragment2_to_mainAuthFragment2)
+        }
+    }
+
+    companion object {
+        private const val TAG = "DashboardFragment"
     }
 }

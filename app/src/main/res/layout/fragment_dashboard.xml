@@ -60,4 +60,16 @@
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/logOutText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LogOut"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

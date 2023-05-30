@@ -10,21 +10,28 @@ import com.bumptech.glide.Glide
 import com.example.farming.data.SuppliersDTOItem
 import com.example.farming.databinding.ItemMaterialAndSupplierBinding
 
-class FarmersAdapter: ListAdapter<SuppliersDTOItem, FarmersAdapter.MyViewHolder>(MyDiffUtil) {
+class FarmersAdapter(private val onClickListener: OnClickListener) :
+    ListAdapter<SuppliersDTOItem, FarmersAdapter.MyViewHolder>(MyDiffUtil) {
 
-    object MyDiffUtil: DiffUtil.ItemCallback<SuppliersDTOItem>() {
-        override fun areItemsTheSame(oldItem: SuppliersDTOItem, newItem: SuppliersDTOItem): Boolean {
+    object MyDiffUtil : DiffUtil.ItemCallback<SuppliersDTOItem>() {
+        override fun areItemsTheSame(
+            oldItem: SuppliersDTOItem,
+            newItem: SuppliersDTOItem
+        ): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: SuppliersDTOItem, newItem: SuppliersDTOItem): Boolean {
+        override fun areContentsTheSame(
+            oldItem: SuppliersDTOItem,
+            newItem: SuppliersDTOItem
+        ): Boolean {
             return oldItem.id == newItem.id
         }
 
     }
 
-    inner class MyViewHolder(private val binding: ItemMaterialAndSupplierBinding)
-        : RecyclerView.ViewHolder(binding.root) //Returns outermost View in the associated layout.
+    inner class MyViewHolder(private val binding: ItemMaterialAndSupplierBinding) :
+        RecyclerView.ViewHolder(binding.root) //Returns outermost View in the associated layout.
     {
         @SuppressLint("SetTextI18n")
         fun bind(supply: SuppliersDTOItem) {
@@ -37,12 +44,30 @@ class FarmersAdapter: ListAdapter<SuppliersDTOItem, FarmersAdapter.MyViewHolder>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(ItemMaterialAndSupplierBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return MyViewHolder(
+            ItemMaterialAndSupplierBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val supply = getItem(position)
         holder.bind(supply)
+
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(supply)
+        }
+    }
+
+    // Handling OnclickListener on recyclerview holder
+    class OnClickListener(val clickListener: (suppliesDTOItem: SuppliersDTOItem) -> Unit) {
+        fun onClick(suppliesDTOItem: SuppliersDTOItem) = clickListener(suppliesDTOItem)
+    }
+}
+
 
         /**
         holder.itemView.setOnClickListener {
@@ -64,5 +89,3 @@ class FarmersAdapter: ListAdapter<SuppliersDTOItem, FarmersAdapter.MyViewHolder>
         }
         */
 
-    }
-}
