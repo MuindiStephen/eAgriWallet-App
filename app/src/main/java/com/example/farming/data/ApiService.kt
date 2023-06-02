@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 
 interface ApiService {
-     @GET("supplies")
+     @GET("inputs")
      fun getAllSuppliers() : Call<ArrayList<SuppliersDTOItem>>
 }
