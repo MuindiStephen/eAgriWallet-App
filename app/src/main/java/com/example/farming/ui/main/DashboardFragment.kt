@@ -52,7 +52,7 @@ class DashboardFragment : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        setUpBinding()
+
 
         mRecyclerView = view.findViewById(R.id.recyclerView)
 
@@ -61,6 +61,10 @@ class DashboardFragment : Fragment() {
             Log.i(TAG,it.materialSupply)
             findNavController().navigate(R.id.action_dashboardFragment2_to_itemBiddingDetailFragment2)
         })
+
+        /**
+         * Get A List Of All Available Quality Inputs
+         */
 
         RetrofitInstance.api.getAllSuppliers().enqueue(object : retrofit2.Callback<ArrayList<SuppliersDTOItem>>{
             override fun onResponse(
@@ -108,20 +112,6 @@ class DashboardFragment : Fragment() {
          */
     }
 
-    private fun setUpBinding() {
-
-        binding.bidSupplyMaterial.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment2_to_itemBiddingDetailFragment2)
-        }
-        binding.seeAllBids.setOnClickListener {
-            findNavController().navigate(R.id.action_dashboardFragment2_to_listMateialBidsFragment2)
-        }
-        binding.logOutText.setOnClickListener {
-            firebaseAuth.signOut()
-            Toast.makeText(requireActivity(), "Signed out successfully", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_dashboardFragment2_to_mainAuthFragment2)
-        }
-    }
 
     companion object {
         private const val TAG = "DashboardFragment"
