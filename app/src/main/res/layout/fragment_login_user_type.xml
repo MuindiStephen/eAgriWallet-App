@@ -14,19 +14,22 @@
         android:layout_marginTop="32dp"
         android:textStyle="bold"
         android:textSize="22sp"
+        android:textColor="@color/gold"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Login As Supplier/Farmer or normal client "
+        android:text="Login As an AgroVet or a Farmer "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonLoginAsClient"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="88dp"
-        android:text="Client Login"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:text="Farmer Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,12 +37,13 @@
 
     <Button
         android:id="@+id/buttonLoginAsFarmerSupplier"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="88dp"
-        android:text="Farmer Login"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="24dp"
+        android:text="AgroVet Login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
