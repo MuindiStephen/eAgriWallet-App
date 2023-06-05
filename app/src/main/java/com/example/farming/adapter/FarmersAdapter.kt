@@ -10,6 +10,10 @@ import com.bumptech.glide.Glide
 import com.example.farming.data.SuppliersDTOItem
 import com.example.farming.databinding.ItemMaterialAndSupplierBinding
 
+
+/**
+ * A recycler view to display a list of all suppliers and more details
+ */
 class FarmersAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<SuppliersDTOItem, FarmersAdapter.MyViewHolder>(MyDiffUtil) {
 

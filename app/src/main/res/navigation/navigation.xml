@@ -83,9 +83,6 @@
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
-            android:id="@+id/action_dashboardFragment2_to_itemBiddingDetailFragment2"
-            app:destination="@id/itemBiddingDetailFragment2" />
-        <action
             android:id="@+id/action_dashboardFragment2_to_listMateialBidsFragment2"
             app:destination="@id/listMateialBidsFragment2" />
         <action
@@ -93,6 +90,9 @@
             app:destination="@id/mainAuthFragment2"
             app:popUpTo="@id/dashboardFragment2"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_dashboardFragment2_to_supplyMaterialDetailsFragment"
+            app:destination="@id/supplyMaterialDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemBiddingDetailFragment2"
@@ -124,11 +124,6 @@
         <action
             android:id="@+id/action_listMateialBidsFragment2_to_dashboardFragment2"
             app:destination="@id/dashboardFragment2" />
-        <action
-            android:id="@+id/action_listMateialBidsFragment2_to_clientPaymentMaterialFragment2"
-            app:destination="@id/clientPaymentMaterialFragment2"
-            app:popUpTo="@id/listMateialBidsFragment2"
-            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/clientPaymentMaterialFragment2"
@@ -191,5 +186,17 @@
             app:destination="@id/farmersLoginFragment"
             app:popUpTo="@id/loginUserTypeFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/supplyMaterialDetailsFragment"
+        android:name="com.example.farming.ui.main.SupplyMaterialDetailsFragment"
+        android:label="fragment_supply_material_details"
+        tools:layout="@layout/fragment_supply_material_details" >
+        <action
+            android:id="@+id/action_supplyMaterialDetailsFragment_to_itemBiddingDetailFragment2"
+            app:destination="@id/itemBiddingDetailFragment2" />
+        <argument
+            android:name="suppliersitem"
+            app:argType="com.example.farming.data.SuppliersDTOItem" />
     </fragment>
 </navigation>

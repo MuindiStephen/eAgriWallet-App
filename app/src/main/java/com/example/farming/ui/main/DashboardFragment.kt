@@ -57,9 +57,11 @@ class DashboardFragment : Fragment() {
         mRecyclerView = view.findViewById(R.id.recyclerView)
 
         suppliersAdapter = FarmersAdapter(
-            FarmersAdapter.OnClickListener {
-            Log.i(TAG,it.materialSupply)
-            findNavController().navigate(R.id.action_dashboardFragment2_to_itemBiddingDetailFragment2)
+            FarmersAdapter.OnClickListener { suppliersItem ->
+            Log.i(TAG,suppliersItem.materialSupply)
+
+                val directions = DashboardFragmentDirections.actionDashboardFragment2ToSupplyMaterialDetailsFragment(suppliersItem)
+                findNavController().navigate(directions)
         })
 
         RetrofitInstance.api.getAllSuppliers().enqueue(object : retrofit2.Callback<ArrayList<SuppliersDTOItem>>{
@@ -110,9 +112,11 @@ class DashboardFragment : Fragment() {
 
     private fun setUpBinding() {
 
+        /**
         binding.bidSupplyMaterial.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment2_to_itemBiddingDetailFragment2)
         }
+         */
         binding.seeAllBids.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment2_to_listMateialBidsFragment2)
         }
