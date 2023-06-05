@@ -15,15 +15,16 @@ class SupplyMaterialDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentSupplyMaterialDetailsBinding
 
-    private val args:SupplyMaterialDetailsFragmentArgs by navArgs()
+    private val args: SupplyMaterialDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSupplyMaterialDetailsBinding.inflate(inflater,container,false)
+        binding = FragmentSupplyMaterialDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
