@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Connect through Email?"
-        android:textColor="@color/black"
+        android:textColor="@color/gold"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +118,8 @@
         android:src="@drawable/whatsapp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailReporting" />
+        app:layout_constraintTop_toBottomOf="@+id/emailReporting"
+        android:contentDescription="TODO" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

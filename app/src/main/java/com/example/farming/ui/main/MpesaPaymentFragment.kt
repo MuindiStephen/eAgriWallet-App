@@ -84,7 +84,7 @@ class MpesaPaymentFragment : Fragment() {
                 when (darajaResult) {
                     is DarajaResult.Success -> {
                         val result = darajaResult.value
-                        Toast.makeText(context?.applicationContext,"Material Payment Successful"+result.ResponseDescription,Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context?.applicationContext,"Farm input Payment Successful"+result.ResponseDescription,Toast.LENGTH_SHORT).show()
                         findNavController().navigate(R.id.action_mpesaPaymentFragment_to_clientDeliveryVerificationFragment)
                     }
                     is DarajaResult.Failure -> {

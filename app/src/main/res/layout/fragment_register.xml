@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Farmers/Suppliers"
+        android:textColor="@color/gold"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

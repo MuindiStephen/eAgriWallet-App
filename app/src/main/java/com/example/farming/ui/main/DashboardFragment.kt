@@ -29,10 +29,7 @@ class DashboardFragment : Fragment() {
     private lateinit var suppliersAdapter: FarmersAdapter
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var reference: DatabaseReference
 
-     //val suppliersAdapter by lazy { FarmersAdapter() }
-    // var itemList: ArrayList<Supplies>? = null
 
 
     override fun onCreateView(
@@ -58,9 +55,11 @@ class DashboardFragment : Fragment() {
 
 
         suppliersAdapter = FarmersAdapter(
-            FarmersAdapter.OnClickListener {
-            Log.i(TAG,it.materialSupply)
-            findNavController().navigate(R.id.action_dashboardFragment2_to_itemBiddingDetailFragment2)
+            FarmersAdapter.OnClickListener { suppliersItem ->
+            Log.i(TAG,suppliersItem.materialSupply)
+
+            val directions = DashboardFragmentDirections.actionDashboardFragment2ToInputDetailsFragment(suppliersItem)
+            findNavController().navigate(directions)
         })
 
         /**
@@ -114,6 +113,8 @@ class DashboardFragment : Fragment() {
 
     private fun setUpBinding() {
         binding.logOutText.setOnClickListener {
+            firebaseAuth.signOut()
+            Toast.makeText(requireActivity(), "Signed out successfully", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_dashboardFragment2_to_mainAuthFragment2)
         }
     }

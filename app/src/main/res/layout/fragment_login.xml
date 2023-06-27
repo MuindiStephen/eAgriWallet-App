@@ -147,7 +147,9 @@
         android:text="Farmer's Login"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:textColor="@color/gold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
