@@ -46,6 +46,7 @@ dependencies {
 
     // Firebase BOM
     implementation platform('com.google.firebase:firebase-bom:29.0.1')
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 
     def nav_version = "2.5.3"
     def lifecycle_version = "2.6.1"

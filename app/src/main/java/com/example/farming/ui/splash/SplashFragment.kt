@@ -37,6 +37,7 @@ class SplashFragment : Fragment() {
 
 
             /**
+             * Firebase
              * @userLoggedIn Checks if the user is logged in or not
              */
              if (userLoggedIn != null) {
@@ -44,7 +45,7 @@ class SplashFragment : Fragment() {
                  findNavController().navigate(R.id.action_splashFragment2_to_dashboardFragment2)
              }
             else {
-                findNavController().navigate(R.id.action_splashFragment2_to_mainAuthFragment2)
+                 findNavController().navigate(R.id.action_splashFragment2_to_mainAuthFragment2)
              }
 
         },3000)

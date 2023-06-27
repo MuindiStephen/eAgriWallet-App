@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dashboardFragment"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Inputs" />
+    <item
+        android:id="@+id/mpesaPaymentFragment"
+        android:icon="@drawable/ic_baseline_account_balance_wallet_24"
+        android:title="Wallet" />
+</menu>

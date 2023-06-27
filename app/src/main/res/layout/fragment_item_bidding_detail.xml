@@ -15,7 +15,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="64dp"
-        android:text="Place Your Bid"
+        android:text="Place Your Order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -36,7 +36,7 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="22sp"
-            android:text="Place your bid offer!"/>
+            android:text="Place your farm input orders here!"/>
     </LinearLayout>
 
     <EditText
@@ -46,7 +46,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="92dp"
         android:layout_marginEnd="24dp"
-        android:hint="Enter Your bid price..."
+        android:hint="price..."
         android:textColorHint="@color/main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -61,7 +61,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:hint="Enter Your bid material..."
+        android:hint="Enter input..."
         android:textColorHint="@color/main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

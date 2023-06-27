@@ -52,9 +52,10 @@ class DashboardFragment : Fragment() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-
+        setUpBinding()
 
         mRecyclerView = view.findViewById(R.id.recyclerView)
+
 
         suppliersAdapter = FarmersAdapter(
             FarmersAdapter.OnClickListener {
@@ -76,9 +77,8 @@ class DashboardFragment : Fragment() {
                     mRecyclerView.adapter = suppliersAdapter
                 }
             }
-
             override fun onFailure(call: Call<ArrayList<SuppliersDTOItem>>, t: Throwable) {
-                Toast.makeText(requireContext(), "No available supplies",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "No available inputs",Toast.LENGTH_SHORT).show()
             }
 
         })
@@ -109,9 +109,14 @@ class DashboardFragment : Fragment() {
 
     }
 
-         */
+    */
     }
 
+    private fun setUpBinding() {
+        binding.logOutText.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment2_to_mainAuthFragment2)
+        }
+    }
 
     companion object {
         private const val TAG = "DashboardFragment"

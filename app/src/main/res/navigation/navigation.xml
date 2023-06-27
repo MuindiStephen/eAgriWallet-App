@@ -104,6 +104,9 @@
             app:destination="@id/successBidFragment2"
             app:popUpTo="@id/itemBiddingDetailFragment2"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_itemBiddingDetailFragment2_to_mpesaPaymentFragment"
+            app:destination="@id/mpesaPaymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/successBidFragment2"
