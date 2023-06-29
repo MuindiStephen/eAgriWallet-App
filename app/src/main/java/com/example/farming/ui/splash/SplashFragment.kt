@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 class SplashFragment : Fragment() {
 
     private lateinit var binding: FragmentSplashBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,10 +34,12 @@ class SplashFragment : Fragment() {
 
         val userLoggedIn = FirebaseAuth.getInstance().currentUser
 
-        Handler(Looper.getMainLooper()).postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed ({
 
+           // findNavController().navigate(R.id.action_splashFragment2_to_mainAuthFragment2)
 
             /**
+             * Firebase
              * @userLoggedIn Checks if the user is logged in or not
              */
              if (userLoggedIn != null) {
@@ -44,7 +47,7 @@ class SplashFragment : Fragment() {
                  findNavController().navigate(R.id.action_splashFragment2_to_dashboardFragment2)
              }
             else {
-                findNavController().navigate(R.id.action_splashFragment2_to_mainAuthFragment2)
+                 findNavController().navigate(R.id.action_splashFragment2_to_mainAuthFragment2)
              }
 
         },3000)

@@ -51,7 +51,7 @@ class ClientDeliveryVerificationFragment : Fragment() {
             // Delivery is confirmed and completed
             Toast.makeText(requireActivity(),"Delivery confirmed: Thank you for verifying the delivery.!", Toast.LENGTH_SHORT)
                 .show()
-            activity?.finishAffinity()
+            findNavController().navigate(R.id.action_clientDeliveryVerificationFragment_to_successBidFragment2)
         }
     }
 }

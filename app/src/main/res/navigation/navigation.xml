@@ -66,7 +66,9 @@
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment2_to_farmersLoginFragment"
-            app:destination="@id/farmersLoginFragment" />
+            app:destination="@id/farmersLoginFragment"
+            app:popUpTo="@id/registerFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/registerClientFragment2"
@@ -75,7 +77,9 @@
         tools:layout="@layout/fragment_register_client" >
         <action
             android:id="@+id/action_registerClientFragment2_to_loginFragment2"
-            app:destination="@id/loginFragment2" />
+            app:destination="@id/loginFragment2"
+            app:popUpTo="@id/registerClientFragment2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment2"
@@ -90,6 +94,7 @@
             app:destination="@id/mainAuthFragment2"
             app:popUpTo="@id/dashboardFragment2"
             app:popUpToInclusive="true" />
+
         <action
             android:id="@+id/action_dashboardFragment2_to_supplyMaterialDetailsFragment"
             app:destination="@id/supplyMaterialDetailsFragment" />
@@ -100,10 +105,8 @@
         android:label="fragment_item_bidding_detail"
         tools:layout="@layout/fragment_item_bidding_detail" >
         <action
-            android:id="@+id/action_itemBiddingDetailFragment2_to_successBidFragment2"
-            app:destination="@id/successBidFragment2"
-            app:popUpTo="@id/itemBiddingDetailFragment2"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_dashboardFragment2_to_inputDetailsFragment"
+            app:destination="@id/inputDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/successBidFragment2"
@@ -170,7 +173,11 @@
         android:id="@+id/clientDeliveryVerificationFragment"
         android:name="com.example.farming.ui.main.ClientDeliveryVerificationFragment"
         android:label="fragment_client_delivery_verification"
-        tools:layout="@layout/fragment_client_delivery_verification" />
+        tools:layout="@layout/fragment_client_delivery_verification" >
+        <action
+            android:id="@+id/action_clientDeliveryVerificationFragment_to_successBidFragment2"
+            app:destination="@id/successBidFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/loginUserTypeFragment"
         android:name="com.example.farming.ui.main.LoginUserTypeFragment"
@@ -188,6 +195,43 @@
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
+
+        android:id="@+id/inputDetailsFragment"
+        android:name="com.example.farming.ui.main.InputDetailsFragment"
+        android:label="fragment_input_details"
+        tools:layout="@layout/fragment_input_details" >
+        <action
+            android:id="@+id/action_inputDetailsFragment_to_mpesaPaymentFragment"
+            app:destination="@id/mpesaPaymentFragment"
+            app:popUpTo="@id/inputDetailsFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="suppliersDTOItem"
+            app:argType="com.example.farming.data.SuppliersDTOItem"
+            />
+
+    </fragment>
+    <fragment
+        android:id="@+id/locateAgrovetsFragment"
+        android:name="com.example.farming.ui.main.location.LocateAgrovetsFragment"
+        android:label="fragment_locate_agrovets"
+        tools:layout="@layout/fragment_locate_agrovets" />
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.example.farming.ui.main.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_mainAuthFragment2"
+            app:destination="@id/mainAuthFragment2"
+            app:popUpTo="@id/profileFragment2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment2_to_dashboardFragment2"
+            app:destination="@id/dashboardFragment2"
+            app:popUpTo="@id/profileFragment2"
+            app:popUpToInclusive="true" />
+
         android:id="@+id/supplyMaterialDetailsFragment"
         android:name="com.example.farming.ui.main.SupplyMaterialDetailsFragment"
         android:label="fragment_supply_material_details"
@@ -198,5 +242,6 @@
         <argument
             android:name="suppliersitem"
             app:argType="com.example.farming.data.SuppliersDTOItem" />
+
     </fragment>
 </navigation>

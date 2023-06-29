@@ -16,7 +16,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginEnd="32dp"
         android:elevation="10dp"
-        android:hint="Enter Delivery Secret code"
+        android:hint="Enter message"
         android:textColorHint="?android:attr/textColorPrimary"
         app:boxStrokeColor="?attr/colorControlNormal"
         app:boxStrokeWidthFocused="2dp"
@@ -45,7 +45,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="32dp"
         android:elevation="10dp"
-        android:hint="Enter contact to report"
+        android:hint="Enter farmer's contact to notify"
         android:textColorHint="?android:attr/textColorPrimary"
         app:boxStrokeColor="?attr/colorControlNormal"
         app:boxStrokeWidthFocused="2dp"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Delivery Report"
+            android:text="Connect and Notify the farmer "
             android:textColor="@color/white"
             android:textSize="22sp" />
     </LinearLayout>
@@ -102,14 +102,24 @@
         android:id="@+id/emailReporting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Report by Email?"
-        android:textColor="@color/black"
+        android:layout_marginTop="32dp"
+        android:text="Connect through Email?"
+        android:textColor="@color/gold"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnReportDelivery" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@drawable/whatsapp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailReporting"
+        android:contentDescription="TODO" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

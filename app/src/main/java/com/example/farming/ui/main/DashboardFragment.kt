@@ -29,10 +29,7 @@ class DashboardFragment : Fragment() {
     private lateinit var suppliersAdapter: FarmersAdapter
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var reference: DatabaseReference
 
-     //val suppliersAdapter by lazy { FarmersAdapter() }
-    // var itemList: ArrayList<Supplies>? = null
 
 
     override fun onCreateView(
@@ -56,13 +53,25 @@ class DashboardFragment : Fragment() {
 
         mRecyclerView = view.findViewById(R.id.recyclerView)
 
+
         suppliersAdapter = FarmersAdapter(
             FarmersAdapter.OnClickListener { suppliersItem ->
             Log.i(TAG,suppliersItem.materialSupply)
 
-                val directions = DashboardFragmentDirections.actionDashboardFragment2ToSupplyMaterialDetailsFragment(suppliersItem)
+
+
+            val directions = DashboardFragmentDirections.actionDashboardFragment2ToInputDetailsFragment(
+                 suppliersDTOItem = suppliersItem
+            )
+            findNavController().navigate(directions)
+               val directions = DashboardFragmentDirections.actionDashboardFragment2ToSupplyMaterialDetailsFragment(suppliersItem)
                 findNavController().navigate(directions)
+
         })
+
+        /**
+         * Get A List Of All Available Quality Inputs
+         */
 
         RetrofitInstance.api.getAllSuppliers().enqueue(object : retrofit2.Callback<ArrayList<SuppliersDTOItem>>{
             override fun onResponse(
@@ -74,9 +83,8 @@ class DashboardFragment : Fragment() {
                     mRecyclerView.adapter = suppliersAdapter
                 }
             }
-
             override fun onFailure(call: Call<ArrayList<SuppliersDTOItem>>, t: Throwable) {
-                Toast.makeText(requireContext(), "No available supplies",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "No available inputs",Toast.LENGTH_SHORT).show()
             }
 
         })
@@ -107,7 +115,7 @@ class DashboardFragment : Fragment() {
 
     }
 
-         */
+    */
     }
 
     private fun setUpBinding() {
@@ -120,6 +128,7 @@ class DashboardFragment : Fragment() {
         binding.seeAllBids.setOnClickListener {
             findNavController().navigate(R.id.action_dashboardFragment2_to_listMateialBidsFragment2)
         }
+
         binding.logOutText.setOnClickListener {
             firebaseAuth.signOut()
             Toast.makeText(requireActivity(), "Signed out successfully", Toast.LENGTH_SHORT).show()
