@@ -28,3 +28,10 @@
 
    
 </p>
+
+
+## Important Features
+[x] - Google Maps SDK integration
+[X] - MPESA Daraja SDK (Payment Integration)
+[X] - Authentication
+[X] - Fetching Remote Data 
