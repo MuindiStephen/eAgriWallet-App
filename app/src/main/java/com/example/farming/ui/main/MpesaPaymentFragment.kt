@@ -203,7 +203,7 @@ class MpesaPaymentFragment : Fragment(),View.OnClickListener {
 
         if (token == null) {
             accessToken()
-            Toast.makeText(context?.applicationContext,"You token refreshed! Try again...",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context?.applicationContext,"Your token refreshed! Try again...",Toast.LENGTH_SHORT).show()
         } else {
             // initiate payment
             daraja.initiatePayment(

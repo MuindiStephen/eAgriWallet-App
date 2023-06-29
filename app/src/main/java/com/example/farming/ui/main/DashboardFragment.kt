@@ -59,10 +59,14 @@ class DashboardFragment : Fragment() {
             Log.i(TAG,suppliersItem.materialSupply)
 
 
+
             val directions = DashboardFragmentDirections.actionDashboardFragment2ToInputDetailsFragment(
                  suppliersDTOItem = suppliersItem
             )
             findNavController().navigate(directions)
+               val directions = DashboardFragmentDirections.actionDashboardFragment2ToSupplyMaterialDetailsFragment(suppliersItem)
+                findNavController().navigate(directions)
+
         })
 
         /**
@@ -115,6 +119,16 @@ class DashboardFragment : Fragment() {
     }
 
     private fun setUpBinding() {
+
+        /**
+        binding.bidSupplyMaterial.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment2_to_itemBiddingDetailFragment2)
+        }
+         */
+        binding.seeAllBids.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboardFragment2_to_listMateialBidsFragment2)
+        }
+
         binding.logOutText.setOnClickListener {
             firebaseAuth.signOut()
             Toast.makeText(requireActivity(), "Signed out successfully", Toast.LENGTH_SHORT).show()

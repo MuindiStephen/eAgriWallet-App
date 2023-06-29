@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id("androidx.navigation.safeargs.kotlin")
     id 'com.google.gms.google-services'
     id ('androidx.navigation.safeargs.kotlin')
     id("kotlin-parcelize")
@@ -45,7 +46,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
     implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation 'com.google.firebase:firebase-database:20.2.2'
+
     implementation 'com.google.firebase:firebase-storage:20.2.1'
+
+    implementation 'com.google.firebase:firebase-storage:20.2.0'
+
 
     // Firebase BOM
     implementation platform('com.google.firebase:firebase-bom:29.0.1')
