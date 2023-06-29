@@ -1,4 +1,4 @@
-# MobileKilimo
+# eAgriWallet App - AgriTech App.
 
 <p float="left">
   
