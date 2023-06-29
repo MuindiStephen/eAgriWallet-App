@@ -1,4 +1,7 @@
 package com.example.farming.model
 
-class Agrovet {
-}
+data class Agrovet(
+    val name:String,
+    val latitude:Double,
+    val longitude:Double
+)

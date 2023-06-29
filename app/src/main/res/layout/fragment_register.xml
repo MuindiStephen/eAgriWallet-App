@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Farmers/Suppliers"
+        android:text="Agrovets"
         android:textColor="@color/gold"
         android:textSize="32sp"
         android:textStyle="bold"

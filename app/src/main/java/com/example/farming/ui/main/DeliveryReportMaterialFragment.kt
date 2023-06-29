@@ -47,7 +47,7 @@ class DeliveryReportMaterialFragment : Fragment() {
 
         binding.btnReportDelivery.setOnClickListener {
             sms?.sendTextMessage(
-                "+254723680624",
+                "+254740495903",
                 null,
                 "Delivered! Your farm product has been delivered successfully...Please confirm by entering your secret code",
                 sentPendingIntent,
@@ -59,12 +59,11 @@ class DeliveryReportMaterialFragment : Fragment() {
         // Email reporting
         binding.emailReporting.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
-            intent.type = "text/plain"
-            intent.data = Uri.parse("mailto:")
-            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("karis51jane@gmail.com"))
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Material Delivery Status")
-            intent.putExtra(Intent.EXTRA_TEXT, "Your product is being delivered within 3 days")
-            startActivity(Intent.createChooser(intent, "MOBILE KILIMO"))
+            intent.type = "text/email"
+            intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("stephenmuindi241@gmail.com"))
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Farm input Delivery Status")
+            intent.putExtra(Intent.EXTRA_TEXT, "Your farm input is being delivered within 3 days")
+            startActivity(Intent.createChooser(intent, "e-AgriWallet App"))
         }
     }
 }

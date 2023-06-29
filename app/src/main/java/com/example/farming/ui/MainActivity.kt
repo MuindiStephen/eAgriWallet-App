@@ -26,17 +26,28 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.findNavController()
 
+
         binding.bottomNavigation.apply {
             setupWithNavController(navController)
         }
 
+
+//        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
+//        bottomNav.setupWithNavController(navController)
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
 
             when(destination.id) {
-                R.id.dashboardFragment -> {
+                R.id.dashboardFragment2 -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
                 R.id.mpesaPaymentFragment -> {
+                     binding.bottomNavigation.visibility = View.VISIBLE
+                }
+                R.id.locateAgrovetsFragment -> {
+                    binding.bottomNavigation.visibility = View.VISIBLE
+                }
+                R.id.profileFragment2 -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
                 else -> {

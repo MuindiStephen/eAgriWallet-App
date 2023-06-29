@@ -2,11 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/dashboardFragment"
+        android:id="@+id/dashboardFragment2"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Inputs" />
     <item
         android:id="@+id/mpesaPaymentFragment"
         android:icon="@drawable/ic_baseline_account_balance_wallet_24"
         android:title="Wallet" />
+    <item
+        android:id="@+id/locateAgrovetsFragment"
+        android:icon="@drawable/ic_locate"
+        android:title="Locate Agrovet"/>
+    <item
+        android:id="@+id/profileFragment2"
+        android:icon= "@drawable/ic_profile"
+        android:title="Account"/>
+
 </menu>

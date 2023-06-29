@@ -1,8 +1,16 @@
 package com.example.farming.data
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+/**
+ * Parcelize allows to pass data faster.
+ *
+ */
+
+@Parcelize
 data class SuppliersDTOItem(
     @SerializedName("description")
     val description: String,
@@ -18,4 +26,4 @@ data class SuppliersDTOItem(
     val rating: String,
     @SerializedName("Supplier")
     val supplier: String
-)
+) : Parcelable

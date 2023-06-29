@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
     id ('androidx.navigation.safeargs.kotlin')
+    id("kotlin-parcelize")
 
 }
 
@@ -87,6 +88,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.1"
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.1'
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.squareup.okio:okio:2.9.0'
     
     // Room Dependencies
     def room_version = "2.5.2"
@@ -94,7 +100,12 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
-    // Payment
-    //daraja
-    implementation 'com.androidstudy.daraja:daraja:2.0.2'
+
+    implementation "androidx.fragment:fragment:1.6.0"
+
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    // Circle Image View
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

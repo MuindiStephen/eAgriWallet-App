@@ -1,54 +1,187 @@
 package com.example.farming.ui.main
 
-import android.content.Context
-import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.findFragment
 import androidx.navigation.fragment.findNavController
-import com.androidstudy.daraja.BuildConfig
-import com.androidstudy.daraja.Daraja
-import com.androidstudy.daraja.callback.DarajaResult
-import com.androidstudy.daraja.util.Environment
-import com.androidstudy.daraja.util.TransactionType
 import com.example.farming.R
 import com.example.farming.databinding.FragmentMpesaPaymentBinding
-import java.util.*
+import com.example.farming.ui.main.mpesa.api.DarajaApiClient
+import com.example.farming.ui.main.mpesa.api.requests.StkPushRequest
+import com.example.farming.ui.main.mpesa.api.responses.AuthorizationResponse
+import com.example.farming.ui.main.mpesa.api.responses.StkPushSuccessResponse
+import com.example.farming.utils.Constants
+import com.example.farming.utils.Constants.BUSINESS_SHORT_CODE
+import com.example.farming.utils.Constants.CALLBACKURL
+import com.example.farming.utils.Constants.PARTYB
+import com.example.farming.utils.Constants.PASSKEY
+import com.example.farming.utils.Constants.SANDBOX_BASE_URL
+import com.example.farming.utils.RegEx
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.HttpException
+import retrofit2.Response
 
 
-class MpesaPaymentFragment : Fragment() {
+/**
+ * Daraja API integration in Android app
+ */
 
-    private lateinit var daraja:Daraja
-    private lateinit var binding:FragmentMpesaPaymentBinding
+class MpesaPaymentFragment : Fragment(),View.OnClickListener {
+
+
+    private var mApiClient: DarajaApiClient? = null
+
+    var mAmount: EditText? = null
+    var mPhone: EditText? = null
+    var mPay: Button? = null
+
+    //private lateinit var daraja: Daraja
+    private lateinit var binding: FragmentMpesaPaymentBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentMpesaPaymentBinding.inflate(inflater,container,false)
+        binding = FragmentMpesaPaymentBinding.inflate(inflater, container, false)
 
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // initializing daraja
-       daraja = getDaraja()
+        (activity as AppCompatActivity).supportActionBar?.hide()
 
-        accessToken()
+        // initializing daraja
+        //daraja = getDaraja()
+
+        //accessToken()
+
+        mAmount= view.findViewById(R.id.enterAmount)
+        mPhone = view.findViewById(R.id.enterPhoneNumber)
+        mPay = view.findViewById(R.id.pay)
+
+
+        val consumerKey = "FG8ad21FyJDGWALcyur1437M7sZ0kQuR"
+        val consumerSecret = "3rRqAkJcajHxzeur"
+
+
+        mApiClient = DarajaApiClient(
+            consumerKey,
+            consumerSecret,
+            SANDBOX_BASE_URL
+        )
+
+        mApiClient!!.setIsDebug(true)
+        mPay!!.setOnClickListener(this)
+
+        getAccessToken()
+
+    }
+    private fun getAccessToken() {
+        mApiClient!!.setGetAccessToken(true)
+        mApiClient!!.mpesaService()!!.getAccessToken().enqueue(object :
+            Callback<AuthorizationResponse?> {
+            override fun onResponse(call: Call<AuthorizationResponse?>, response: Response<AuthorizationResponse?>) {
+                if (response.isSuccessful) {
+                    mApiClient!!.setAuthToken(response.body()?.accessToken)
+                }
+            }
+
+            override fun onFailure(call: Call<AuthorizationResponse?>, t: Throwable) {
+                Log.e("MainActivity",t.printStackTrace().toString())
+            }
+        })
     }
 
+    override fun onClick(v: View?) {
+        if (v === mPay ) {
+
+            val phoneNumber = mPhone!!.text.toString()
+            val amount = mAmount!!.text.toString()
+            performSTKPush(phoneNumber, amount)
+        }
+    }
+
+    private fun performSTKPush(phoneNumber: String, amount: String) {
+        val timestamp = RegEx.getTimestamp()
+
+        val stkPush = StkPushRequest(
+            businessShortCode = BUSINESS_SHORT_CODE,
+            password = RegEx.getPassword(BUSINESS_SHORT_CODE, PASSKEY, timestamp!!)!!,
+            timestamp = timestamp,
+            transactionType = Constants.TransactionType.CustomerPayBillOnline,
+            amount = amount,
+            partyA = RegEx.sanitizePhoneNumber(phoneNumber)!! ,
+            partyB = PARTYB,
+            phoneNumber = RegEx.sanitizePhoneNumber(phoneNumber)!!,
+            callBackURL = CALLBACKURL,
+            accountReference = "LIPA NA MPESA",
+            transactionDesc = "LIPA NA MPESA C2B"
+        )
+
+        mApiClient!!.setGetAccessToken(false)
+
+        mApiClient!!.mpesaService()!!.sendPush(stkPush).enqueue(object : Callback<StkPushSuccessResponse> {
+            override fun onResponse(call: Call<StkPushSuccessResponse>, response: Response<StkPushSuccessResponse>) {
+
+                try {
+                    if (response.isSuccessful) {
+                        Toast.makeText(
+                            requireContext().applicationContext,
+                            "Response : ${response.body().toString()}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        navigateToDeliveryScreen()
+
+                        Log.d(TAG,"post submitted to API. %s")
+                    } else {
+                        Log.e(TAG,"Response %s")
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+
+            override fun onFailure(call: Call<StkPushSuccessResponse>, t: Throwable) {
+                Log.e(TAG,t.printStackTrace().toString(), httpException)
+
+            }
+    })
+
+}
+
+    private fun navigateToDeliveryScreen() {
+        findNavController().navigate(R.id.action_mpesaPaymentFragment_to_clientDeliveryVerificationFragment)
+    }
+
+    companion object {
+        val httpException : HttpException? = null
+        const val TAG = "MpesaPaymentFragment"
+    }
+}
+
+    /**
     private fun getDaraja(): Daraja {
-        return Daraja.builder("vdGFxeLAnSG4kbE5A4JM8faaF0BULt62", "oLAV7OPavgaPtGP1")
+        return Daraja.builder("Uku3wUhDw9z0Otdk2hUAbGZck8ZGILyh", "JDjpQBm5HpYwk38b")
             .setBusinessShortCode("174379")
             .setPassKey("bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919")
             .setTransactionType(TransactionType.CustomerBuyGoodsOnline)
             .setCallbackUrl("https://us-central1-mpesaapisecond.cloudfunctions.net/myCallbackUrl")
             .setEnvironment(Environment.SANDBOX)
+
             .build()
     }
 
@@ -155,3 +288,4 @@ class MpesaPaymentFragment : Fragment() {
         UUID.randomUUID().toString()
 
 }
+        */

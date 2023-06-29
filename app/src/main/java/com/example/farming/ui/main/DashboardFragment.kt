@@ -58,7 +58,10 @@ class DashboardFragment : Fragment() {
             FarmersAdapter.OnClickListener { suppliersItem ->
             Log.i(TAG,suppliersItem.materialSupply)
 
-            val directions = DashboardFragmentDirections.actionDashboardFragment2ToInputDetailsFragment(suppliersItem)
+
+            val directions = DashboardFragmentDirections.actionDashboardFragment2ToInputDetailsFragment(
+                 suppliersDTOItem = suppliersItem
+            )
             findNavController().navigate(directions)
         })
 
